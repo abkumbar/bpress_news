@@ -1,1 +1,1 @@
-This is a full stack news application built to CRUD new articles.
+This is a full stack news application built to CRUD news articles.

@@ -16,8 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
+from django.views.generic import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/news', include('news.api.urls')),
+    # path('api/news', include('news.api.urls')),
+    url(r'^api/news',include(('news.api.urls','api-articles'),namespace='api-articles')),
+    url(r'^api/news/?', include(('news.api.urls','article-detail'),namespace='article-detail'))
+    # path('api/',include('news.api.urls')),
+    # path('',RedirectView.as_view(url='api/',permanent=True)),
 ]
